@@ -1,0 +1,68 @@
+<?php if($this->page=='history') : ?>
+<h2>History of Done Incoming Telephones</h2>
+<?php else : ?>
+<h2>List of Incoming Telephones</h2>
+<?php endif;?>
+<h3 class="status_info"><?php echo implode($this->messages); ?></h3>
+<p><a href="<?php echo $this->url(array(),'incoming-create'); ?>">Create Incoming</a></p>
+<?php if (count($this->records)): ?>
+<div id="records">
+  <form method="post" action="<?php echo $this->url(array(), $this->theaction); ?>">
+    <table>
+      <tr>
+        <td class="key">Done?</td>    
+        <td class="key">
+          ID
+        </td>
+        <td class="key">
+          Date
+        </td>
+        <td class="key">
+          Time
+        </td>
+        <td class="key">
+          Who Called Name
+        </td>
+        <td class="key">
+          Who Called Company
+        </td>        
+        <td class="key">
+          Priority
+        </td> 
+        <td class="key">
+          Follow Up Action
+        </td>  
+        <td class="key">
+          Action For
+        </td>    
+        <td></td>    
+        <td></td>    
+        <td></td>    
+      </tr>
+      <?php foreach ($this->records as $r):?>
+      <tr>
+        <td><input type="checkbox" name="ids[]" value="<?php echo $r['incomingtelephone_id']; ?>" style="width:2px" 
+        <?php if($r['done']) echo 'checked="checked"';?> /></td>
+        <td><?php echo $this->escape($r['incomingtelephone_id']); ?></td>
+        <td><?php echo $this->escape($r['date']); ?></td>
+        <td><?php echo $this->escape($r['time']); ?></td>
+        <td><?php echo $this->escape($r['who_called_name']); ?></td>
+        <td><?php echo $this->escape($r['who_called_company']); ?></td>        
+        <td><?php echo $this->escape($r['priority']); ?></td>    
+        <td><?php echo $this->escape($r['Telephone_Model_FollowUpAction']['name']); ?></td>    
+        <td><?php echo $this->escape($r['Telephone_Model_Users']['name']); ?></td>         
+        <td><a href="<?php echo $this->url(array('id' => $r['incomingtelephone_id']), 'incoming-display'); ?>">Display</a></td>    
+        <td><a href="<?php echo $this->url(array('id' => $r['incomingtelephone_id']), 'incoming-update'); ?>">Update</a></td>    
+        <td><a href="<?php echo $this->url(array('id' => $r['incomingtelephone_id']), 'incoming-delete'); ?>">Delete</a></td>    
+      </tr>  
+      <?php endforeach; ?>
+      <tr>
+        <td colspan="9"><input type="submit" name="submit" style="width:150px" value="Update Done" /></td>
+      </tr>    
+    </table>
+  </form>
+</div>
+
+<?php else: ?>
+No records found
+<?php endif; ?>

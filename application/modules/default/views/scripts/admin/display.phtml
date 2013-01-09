@@ -1,0 +1,64 @@
+<h2>Incoming Telephone</h2>
+<h3>
+  Action for:  
+  <?php echo $this->escape($this->item['Telephone_Model_Users']['name']); ?>
+</h3>
+<?php if($this->escape($this->item['done'])): ?>
+   <h3 class="status_info">Is Done</h3>
+   <?php else:?>
+    <h3 class="status_info">Not Done</h3>
+      <?php endif;?>
+<div id="container">
+  <div id="record">  
+    <table>    
+      <tr>
+        <td class="key">Date:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['date']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Time:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['time']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Who Called:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['who_called_name']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Company:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['who_called_company']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Description:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['description']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Priority:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['priority']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Follow Up Action:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['Telephone_Model_FollowUpAction']['name']); ?>
+        </td>
+      </tr>
+      <tr>
+        <td class="key">Follow Up Text:</td>
+        <td class="value">
+          <?php echo $this->escape($this->item['follow_up_action_text']); ?>
+        </td>
+      </tr>       
+    </table>
+  </div>  
+</div>
