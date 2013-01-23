@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`userid`, `name`, `username`, `password`) VALUES
 (1, 'Susana Santos', 'susana@factorc.net', 'goodjob'),
-(2, 'Testing VP', 'Stuart.Day@quantica-technology.co.uk', 'test'),
+(2, 'Testing VP', 'your_mail@gmail.com', 'test'),
 (3, 'Edgar Borges', 'ed9arborges@gmail.com', '12345');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
